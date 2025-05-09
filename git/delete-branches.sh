@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get all local branches except 'main'
-branches_to_delete=$(git branch | grep -v "main" | sed 's/^[* ]*//')
+branches_to_delete=$(git branch | grep -v $(git_main_branch)  | sed 's/^[* ]*//')
 
 # If no branches to delete
 if [ -z "$branches_to_delete" ]; then
